@@ -5,12 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IKKIpet"
         mc:Ignorable="d"
-        Title="IKKIpet" Height="450" Width="800"
+        Title="IKKIpet" Height="450" Width="795"
         WindowStyle="None"
+        BorderBrush="AntiqueWhite"
+        BorderThickness="2px"
         AllowsTransparency="True"
         Background="Transparent"
+        ShowInTaskbar="False"
         Topmost="True">
     <Grid>
+
+        <Image 
+            x:Name="PetImage"
+            Width="192"
+            Height="192"
+            Stretch="Uniform"
+        />
 
     </Grid>
 </Window>
