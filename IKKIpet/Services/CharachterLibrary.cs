@@ -104,35 +104,35 @@ namespace IKKIpet.Services
                     // Row 6
                     [AnimationId.Attack1] =
                         AnimationDefinition.FromGrid(
-                            row: 6,
+                            row: 8,
                             startColumn: 0,
-                            frameCount: 8,
+                            frameCount: 7,
                             frameWidth: FrameWidth,
                             frameHeight: FrameHeight,
                             framesPerSecond: 12,
                             loop: false,
-                            comboWindowStart: 3,
+                            comboWindowStart: 2,
                             comboWindowEnd: 5),
 
                     // Row 7
                     [AnimationId.Attack2] =
                         AnimationDefinition.FromGrid(
-                            row: 7,
-                            startColumn: 0,
-                            frameCount: 18,
+                            row: 8,
+                            startColumn: 7,
+                            frameCount: 7,
                             frameWidth: FrameWidth,
                             frameHeight: FrameHeight,
                             framesPerSecond: 12,
                             loop: false,
-                            comboWindowStart: 8,
-                            comboWindowEnd: 13),
+                            comboWindowStart: 2,
+                            comboWindowEnd: 6),
 
                     // Row 8
                     [AnimationId.Attack3] =
                         AnimationDefinition.FromGrid(
                             row: 8,
-                            startColumn: 0,
-                            frameCount: 26,
+                            startColumn: 13,
+                            frameCount: 12,
                             frameWidth: FrameWidth,
                             frameHeight: FrameHeight,
                             framesPerSecond: 12,
