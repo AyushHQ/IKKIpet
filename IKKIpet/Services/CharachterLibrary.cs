@@ -110,7 +110,9 @@ namespace IKKIpet.Services
                             frameWidth: FrameWidth,
                             frameHeight: FrameHeight,
                             framesPerSecond: 12,
-                            loop: false),
+                            loop: false,
+                            comboWindowStart: 3,
+                            comboWindowEnd: 5),
 
                     // Row 7
                     [AnimationId.Attack2] =
@@ -121,7 +123,9 @@ namespace IKKIpet.Services
                             frameWidth: FrameWidth,
                             frameHeight: FrameHeight,
                             framesPerSecond: 12,
-                            loop: false),
+                            loop: false,
+                            comboWindowStart: 8,
+                            comboWindowEnd: 13),
 
                     // Row 8
                     [AnimationId.Attack3] =

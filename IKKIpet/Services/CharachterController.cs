@@ -63,24 +63,24 @@ namespace IKKIpet.Services
             if (_charachter == null)
                 return;
 
-            //System.Diagnostics.Debug.WriteLine($"Attack called. Current animation: {_currentAnimation}");
-
             switch (_currentAnimation)
             {
                 case AnimationId.Attack1:
-                    _comboQueued = true;
-                    break;
-
                 case AnimationId.Attack2:
-                    _comboQueued = true;
+
+                    if (IsComboWindowOpen())
+                    {
+                        _comboQueued = true;
+                    }
                     break;
 
                 case AnimationId.Attack3:
-                    // Combo already reached the final attack.
                     break;
 
                 default:
+
                     Play(AnimationId.Attack1);
+
                     break;
             }
         }
@@ -94,6 +94,25 @@ namespace IKKIpet.Services
             BitmapSource frame)
         {
             _image.Source = frame;
+        }
+
+        private bool IsComboWindowOpen()
+        {
+            if (_charachter == null)
+                return false;
+
+            if (_currentAnimation == null)
+                return false;
+
+            if (!_charachter.Animations.TryGetValue(
+                    _currentAnimation.Value,
+                    out AnimationDefinition? animation))
+            {
+                return false;
+            }
+
+            return animation.IsComboWindowOpen(
+                _animation.CurrentFrame);
         }
 
         private void OnAnimationCompleted()

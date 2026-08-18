@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Windows;
 
 namespace IKKIpet.Models
@@ -13,6 +11,24 @@ namespace IKKIpet.Models
 
         public bool Loop { get; init; } = true;
 
+        // Frame range in which the next combo input is accepted.
+        // -1 means this animation has no combo window.
+        public int ComboWindowStart { get; init; } = -1;
+
+        public int ComboWindowEnd { get; init; } = -1;
+
+        public bool IsComboWindowOpen(int frameIndex)
+        {
+            if (ComboWindowStart < 0 ||
+                ComboWindowEnd < 0)
+            {
+                return false;
+            }
+
+            return frameIndex >= ComboWindowStart &&
+                   frameIndex <= ComboWindowEnd;
+        }
+
         public static AnimationDefinition FromGrid(
             int row,
             int startColumn,
@@ -20,7 +36,9 @@ namespace IKKIpet.Models
             int frameWidth,
             int frameHeight,
             double framesPerSecond = 8,
-            bool loop = true)
+            bool loop = true,
+            int comboWindowStart = -1,
+            int comboWindowEnd = -1)
         {
             var frames = new List<Int32Rect>();
 
@@ -39,8 +57,18 @@ namespace IKKIpet.Models
             return new AnimationDefinition
             {
                 Frames = frames,
-                FramesPerSecond = framesPerSecond,
-                Loop = loop
+
+                FramesPerSecond =
+                    framesPerSecond,
+
+                Loop =
+                    loop,
+
+                ComboWindowStart =
+                    comboWindowStart,
+
+                ComboWindowEnd =
+                    comboWindowEnd
             };
         }
     }

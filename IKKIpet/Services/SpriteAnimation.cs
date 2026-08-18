@@ -17,6 +17,8 @@ namespace IKKIpet.Services
 
         private int _currentFrame;
 
+        public int CurrentFrame => _currentFrame;
+
         public event Action<BitmapSource>? FrameChanged;
 
         public event Action? AnimationCompleted;
