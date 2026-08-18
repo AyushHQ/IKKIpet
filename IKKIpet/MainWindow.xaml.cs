@@ -34,7 +34,7 @@ namespace IKKIpet
                 CharachterId.WindWarrior);
 
             _charachter.Play(
-                AnimationId.Defend);
+                AnimationId.Idle); 
 
             Closed += OnWindowClosed;
         }
@@ -44,6 +44,11 @@ namespace IKKIpet
             System.EventArgs e)
         {
             _charachter.Stop();
+        }
+
+        private void WarriorImage_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            _charachter.Attack();
         }
     }
 }

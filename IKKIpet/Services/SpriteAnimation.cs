@@ -19,6 +19,8 @@ namespace IKKIpet.Services
 
         public event Action<BitmapSource>? FrameChanged;
 
+        public event Action? AnimationCompleted;
+
         public SpriteAnimation()
         {
             _timer = new DispatcherTimer();
@@ -105,6 +107,7 @@ namespace IKKIpet.Services
                         _currentAnimation.Frames.Count - 1;
 
                     Stop();
+                    AnimationCompleted?.Invoke();
                 }
             }
 
