@@ -21,6 +21,7 @@
     <None Remove="Assets\Dragon\Idle\idle_07.png" />
     <None Remove="Assets\Dragon\Idle\idle_08.png" />
     <None Remove="Assets\Dragon\Idle\idle_strip.png" />
+    <None Remove="Assets\WindWarrior\Khaleed_288x128.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +37,7 @@
     <Resource Include="Assets\Dragon\Idle\idle_07.png" />
     <Resource Include="Assets\Dragon\Idle\idle_08.png" />
     <Resource Include="Assets\Dragon\Idle\idle_strip.png" />
+    <Resource Include="Assets\WindWarrior\Khaleed_288x128.png" />
   </ItemGroup>
 
 </Project>

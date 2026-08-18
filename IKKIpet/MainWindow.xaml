@@ -5,22 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IKKIpet"
         mc:Ignorable="d"
-        Title="IKKIpet" Height="450" Width="795"
+        Title="IKKIpet"
         WindowStyle="None"
-        BorderBrush="AntiqueWhite"
-        BorderThickness="2px"
         AllowsTransparency="True"
         Background="Transparent"
         ShowInTaskbar="False"
+        BorderThickness="2px"
+        BorderBrush="AntiqueWhite"
         Topmost="True">
+        <!--WindowState="Maximized"-->
+        <!--ResizeMode="NoResize"-->
     <Grid>
 
         <Image 
             x:Name="PetImage"
-            Width="192"
-            Height="192"
+            Width="288"
+            Height="128"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Margin="0,0,140,140"
             Stretch="Uniform"
-        />
+            RenderTransformOrigin="0.5,0.5">
+                 <Image.RenderTransform>
+                     <ScaleTransform ScaleX="2"
+                             ScaleY="2" />
+                 </Image.RenderTransform>
+        </Image>
 
     </Grid>
 </Window>

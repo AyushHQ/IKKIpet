@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
+using IKKIpet.Models;
 
 namespace IKKIpet.Services
 {
@@ -10,7 +11,7 @@ namespace IKKIpet.Services
     {
         private readonly DispatcherTimer _timer;
 
-        private BitmapImage? _spriteSheet;
+        private BitmapSource? _spriteSheet;
 
         private AnimationDefinition? _currentAnimation;
 
@@ -27,10 +28,32 @@ namespace IKKIpet.Services
 
         public void LoadSpriteSheet(string resourcePath)
         {
-            _spriteSheet = new BitmapImage(
-                new Uri(resourcePath, UriKind.Absolute));
+            var resourceUri = new Uri(
+                resourcePath,
+                UriKind.Relative);
 
-            _spriteSheet.Freeze();
+            var resource = Application.GetResourceStream(resourceUri);
+
+            if (resource == null)
+            {
+                throw new InvalidOperationException(
+                    $"Could not find WPF resource: {resourcePath}");
+            }
+
+            using (resource.Stream)
+            {
+                var bitmap = new BitmapImage();
+
+                bitmap.BeginInit();
+
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                bitmap.StreamSource = resource.Stream;
+
+                bitmap.EndInit();
+                bitmap.Freeze();
+
+                _spriteSheet = bitmap;
+            }
         }
 
         public void Play(AnimationDefinition animation)
